@@ -1,0 +1,18 @@
+import math
+
+x1 = 17 #точне число sqrt(x1 )
+x2 = 19/9 #точне число x2
+x1_1 = 4.12310562562 #наближене число x1
+x2_2 = 2.1111111111 #наближене число x2
+
+def f (x1, x1_1, x2, x2_2):
+
+dx1 = abs((math.sqrt(x1) - x1_1)/ math.sqrt (x1))
+dx2 = abs((x2 - x2_2)/x2)
+
+if (dx1>dx2):
+print ("The second equality is")
+else:
+print("The first equality isе")
+
+f(x1,x1_1,x2,x2_2)
