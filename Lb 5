@@ -1,0 +1,26 @@
+import numpy as np
+from scipy import optimize
+from scipy.misc import derivative
+import math
+def f1(y):
+    return math.cos(y) + 2
+def f2 (x):
+    return 1/2 * math.cos(x-1) - 0.8
+def iter (x,y,e):
+    xn = x
+    yn = y
+    xn1 = f2(x)
+    yn1 = f1(y)
+    n = 1
+    while ((abs(xn1-xn)>=e) & (abs(yn1-yn) >=e)):
+        xn = xn1
+        yn = yn1
+        xn1 = f2(yn)
+        yn1 = f1(xn)
+        n += 1
+    print ('x =', xn, '\ny =',yn,'\nКількість ітерацій = ',n)
+iter(2.659,0.95,0.001)
+def f3(x):
+    return math.cos(x[0]-1) + x[1] - 0.8, x[0] + math.cos(x[1]) - 2
+s = optimize.root(f3, [0.,0.], method = 'hybr')
+print ('Перевірка',s.x)
